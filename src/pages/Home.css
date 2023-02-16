@@ -1,0 +1,35 @@
+/* --------------------------------------------------------------Navbar CSS */
+.navbar {
+  background-color: #ffff !important; /* fond blanc */
+}
+/*les liens*/
+.navbar a {
+  font-family: Helvetica, Arial, sans-serif; /* police */
+  font-size: 18px; /* taille de police */
+  color: #000000; /* texte noir */
+}
+
+/*le titre*/
+.navbar-brand span {
+  color: rgb(3, 152, 158);
+  font-size: 30px;
+  font-weight: bold;
+}
+/*---------------------------------------------------------------------------*/
+/*-----------------------------------Container*/
+.background-image {
+  background-image: url("../assets/Aide solidarite.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  filter: contrast(90%);
+}
+/* sélecteur pour les éléments de texte */
+.text-container {
+  background-color: rgba(255, 255, 255, 0.689);
+  padding: 50px;
+  font-family: Helvetica, Arial, sans-serif; /* police */
+  font-size: 18px; /* taille de police */
+  color: #000000; /* texte noir */
+  filter: contrast(95%);
+}
