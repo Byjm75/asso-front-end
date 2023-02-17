@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 export const Home = () => {
   return (
     <div>
-      <nav id='test' className='navbar sticky-top navbar-expand-lg shadow'>
+      <nav className='navbar sticky-top navbar-expand-lg shadow'>
         <div className='container-fluid'>
           <div>
             <img
@@ -13,8 +13,8 @@ export const Home = () => {
               aria-hidden='true'
               alt=' logo du site Associations-Nous !'
               title='logo du site Associations-Nous !'
-              width='70'
-              height='50'
+              width='90'
+              height='55'
               className='d-inline-block align-text-top me-2'
               id='navbarLogo'
             />
@@ -24,28 +24,26 @@ export const Home = () => {
             id='navbarInscriptionDonateur'
             title='cliquez pour y accéder'
           >
-            <ul className='navbar-nav'>
-              <li className='nav-item'>
-                <a className='nav-link' href='#'>
-                  Inscription Donateur
-                </a>
-              </li>
-            </ul>
+            <button
+              type='button'
+              className='btn btn-danger'
+              id='button-donateur'
+            >
+              <a className='navbar-brand' href='*'>
+                Inscription Donateur
+              </a>
+            </button>
           </div>
           <div
             className='d-flex align-items-center justify-content-center flex-grow-1'
             id='navbarTitre'
           >
-            <ul className='navbar-nav'>
-              <li className='nav-item'>
-                <div
-                  className='navbar-brand mb-0 h1'
-                  title='Plateforme de mise en relation entre associations et donateurs'
-                >
-                  <span>ASSOCIATIONS-NOUS !</span>
-                </div>
-              </li>
-            </ul>
+            <div
+              className='navbar-brand mb-0 h1'
+              title='Plateforme de mise en relation entre associations et donateurs'
+            >
+              <span>ASSOCIATIONS-NOUS !</span>
+            </div>
           </div>
           {/* Objet menu en responsive */}
           <button
@@ -64,18 +62,20 @@ export const Home = () => {
             id='navbarLinkAsso'
             title='cliquez pour y accéder'
           >
-            <ul className='navbar-nav'>
-              <li className='nav-item'>
-                <a className='nav-link' href='#'>
-                  Inscription Association
-                </a>
-              </li>
-            </ul>
+            <button
+              type='button'
+              className='btn btn-danger'
+              id='button-donateur'
+            >
+              <a className='navbar-brand' href='*'>
+                Inscription Association
+              </a>
+            </button>
           </div>
           <div id='navbarConnect' title='cliquez pour y accéder'>
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
+                <a className='nav-link' href='*'>
                   Mon compte
                 </a>
               </li>
@@ -83,67 +83,149 @@ export const Home = () => {
           </div>
         </div>
       </nav>
-      <div>
-        <body className='background-image'>
-          <Container className='text-container'>
-            <Row>
-              <Col xs={12} md={6}>
-                <h2>Association "Solidarité pour tous"</h2>
-                <br />
-                <p>Aide aux personnes défavorisées</p>
-                <p>
-                  Notre objectif est d'améliorer les conditions de vie des
-                  personnes défavorisées et de sensibiliser la population aux
-                  problèmes de pauvreté. Aider les personnes en situation de
-                  précarité à améliorer leur qualité de vie en leur offrant un
-                  accompagnement social et des services de base tels que l'accès
-                  à la nourriture, à l'hébergement et à la santé.
-                </p>
-                <p>
-                  Nos équipes de bénévoles et de salariés sont présent dans
-                  plusieurs villes françaises, avec des centres d'action dans
-                  les quartiers les plus défavorisés.
-                </p>
-                <p>
+      <body className='background-image'>
+        <Container className='page-accueil'>
+          <Row>
+            <Col id='introduction'>
+              <p>
+                Associations-Nous est la plateforme idéale pour faire des dons
+                en ligne de manière simple, sécurisée et efficace. <br />
+                En choisissant "Solidarité pour tous" sur notre site, Sophie a
+                pu sélectionner le projet qui lui tenait le plus à cœur et
+                suivre son évolution en temps réel. <br />
+                Associations-Nous garantit la transparence et la traçabilité de
+                chaque projet pour que les donateurs puissent voir l'impact réel
+                de leur contribution sur la société. Rejoignez-nous pour
+                contribuer à un avenir meilleur pour tous !
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col id='personae'>
+              <h2>
+                <strong>Sophie 35 ans Enseignante</strong>
+              </h2>
+              <p>
+                Sophie est une altruiste qui croit en l'importance d'aider les
+                personnes dans le besoin. Malgré son salaire modeste, elle
+                consacre une partie de son temps libre à faire du bénévolat dans
+                des associations caritatives, en particulier celles qui aident
+                les enfants en difficulté scolaire et les personnes âgées
+                confrontées à des défis dans notre société. Elle recherche une
+                plateforme de dons en ligne simple, sécurisée et proposant une
+                sélection variée et pertinente de projets humanitaires ayant un
+                impact positif sur la société. Elle souhaite soutenir des
+                projets qui contribuent à résoudre des problèmes sociaux tels
+                que l'exclusion sociale, la pauvreté et le manque d'accès à
+                l'éducation.
+              </p>
+              <p>
+                Sophie veut que ses dons aient un impact réel et croit en la
+                transparence des projets humanitaires. Associations-Nous offre
+                des projets variés, transparents et traçables, permettant de
+                suivre l'évolution en temps réel. Sophie a choisi cette
+                plateforme pour sa fiabilité et son efficacité dans la lutte
+                contre les problèmes sociaux. Elle est rassurée de savoir que
+                son don est utilisé de manière responsable et efficace pour
+                contribuer à un avenir meilleur pour la société.
+              </p>
+            </Col>
+            <Col id='asso'>
+              <h2 id='titre-1'>
+                <strong>Association "Solidarité pour tous"</strong>
+              </h2>
+              <h3>
+                <strong>Aide aux personnes</strong>
+              </h3>
+              <p>
+                Notre but est d'améliorer la qualité de vie des personnes
+                défavorisées en leur offrant un accompagnement social et des
+                services de base, tels que l'accès à la nourriture, à
+                l'hébergement et aux soins de santé. Nous cherchons également à
+                sensibiliser le public aux problèmes de pauvreté et à aider les
+                personnes en situation de précarité à améliorer leur situation.
+              </p>
+              <p>
+                <strong>
                   Grace à Vous et à Associations-Nous ! Vous pouvez maintenant
-                  faire dons directement aux projets qui vous tiennes à coeur.
-                </p>
-                <h2> Nos projets</h2>
-                <br />
-                <ul>
-                  <li>
-                    "Un Logement pour tous": Ce projet vise à aider les
-                    personnes sans abri ou en situation de précarité à trouver
-                    un logement stable. En faisant dons à se projet, vous
-                    soutenez la rénovation de logement !
-                  </li>
-                  <br />
-                  <li>
-                    "Soutien scolaire pour les enfants": Ce projet vise à aider
-                    les enfants en difficulté scolaire à réussir leurs études.
-                    En faisant dons à se projet, vous financez le soutien
-                    scolaire !
-                  </li>
-                  <br />
-                  <li>
-                    "Soutien aux personnes âgées": Ce projet vise à aider les
-                    personnes âgées à vivre de manière autonome et à maintenir
-                    leur qualité de vie. Ici vous assurez votre soutien aux
-                    aides soignants !
-                  </li>
-                </ul>
-              </Col>
-              <Col xs={12} md={6}>
-                <h2>Persona donateur</h2>
-                <p>
-                  Ici vous pouvez faire un don à l'un des projets de
-                  l'association "Solidarité pour tous".
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </body>
-      </div>
+                  faire dons directement aux projets qui vous tiennent à coeur.
+                </strong>
+              </p>
+              <h2 id='titre-2'>
+                <strong>Nos projets</strong>
+              </h2>
+              <ul>
+                <li>
+                  <h5>
+                    <strong>"Un Logement pour tous"</strong>
+                  </h5>
+                  <p>
+                    A pour but d'aider les personnes sans domicile fixe ou en
+                    situation de précarité à accéder à un logement stable. Votre
+                    soutien financier à ce projet permet de financer la
+                    rénovation de logements.
+                  </p>
+                </li>
+                <li>
+                  <h5>
+                    <strong>"Soutien scolaire pour les enfants"</strong>
+                  </h5>
+                  <p>
+                    A pour objectif d'aider les enfants qui ont des difficultés
+                    scolaires à réussir leurs études. En faisant un don à ce
+                    projet, vous soutenez le financement du soutien scolaire.
+                  </p>
+                </li>
+                <li>
+                  <h5>
+                    <strong>"Soutien aux personnes âgées"</strong>
+                  </h5>
+                  <p>
+                    A pour but d'assister les personnes âgées à maintenir leur
+                    qualité de vie et à vivre de manière autonome. Votre soutien
+                    à ce projet permettra également d'assister les
+                    aides-soignants.
+                  </p>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              className='d-flex justify-content-center align-items-center'
+              xs={12}
+              sm={6}
+              md={6}
+            >
+              <button
+                type='button'
+                className='btn btn-danger'
+                id='button-donateur'
+              >
+                <a className='navbar-brand' href='*'>
+                  Inscription Donateur
+                </a>
+              </button>
+            </Col>
+            <Col
+              className='d-flex justify-content-center align-items-center'
+              xs={12}
+              sm={6}
+              md={6}
+            >
+              <button
+                type='button'
+                className='btn btn-danger'
+                id='button-association'
+              >
+                <a className='navbar-brand' href='*'>
+                  Inscription Association
+                </a>
+              </button>
+            </Col>
+          </Row>
+        </Container>
+      </body>
     </div>
   );
 };
