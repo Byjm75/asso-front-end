@@ -1,23 +1,43 @@
-/* --------------------------------------------------------------Navbar CSS */
+/* --------------------------------------------------------------Navbar*/
 .navbar {
-  background-color: #ffff !important; /* fond blanc */
+  background-color: #ffff !important;
+}
+#logo.logo-css {
+  margin-left: 30px;
 }
 
-/*les liens*/
-.navbar a {
-  font-family: Helvetica, Arial, sans-serif; /* police */
-  font-size: 18px; /* taille de police */
-  color: #000000; /* texte noir */
+/* ----------------------------Bouton lien Inscription donateur*/
+.form-donateur.navbar-brand a {
+  margin: none;
+  padding: none;
+}
+#boutton-inscription span {
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+}
+#connection {
+  margin-right: 30px;
+}
+
+#connection span {
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: black;
+}
+#button-donateur {
+  padding: 0em;
+  font-size: 30px;
 }
 
 /*le titre*/
-.navbar-brand span {
+#navbar-titre span {
   color: rgb(3, 152, 158);
-  font-size: 30px;
+  font-size: 36px;
   font-weight: bold;
+  border-color: #000;
 }
-/*---------------------------------------------------------------------------*/
-/*-----------------------------------Container*/
+/*------------------------------------------------------------Image*/
 .background-image {
   background-image: url("../assets/Aide solidarite.jpg");
   background-repeat: no-repeat;
@@ -26,14 +46,14 @@
   filter: contrast(90%);
 }
 
-/*----------------------------------Container Page d'accueil */
+/*---------------------------------------------------Container Page d'accueil */
 .page-accueil {
   background-color: rgba(255, 255, 255, 0.762);
   padding: 1em;
   filter: contrast(95%);
 }
 
-/* --------------------------------------Introduction */
+/* --------------------------------------------------Introduction */
 #introduction {
   margin: 1em;
   margin-bottom: em;
@@ -49,10 +69,10 @@
   color: #000;
 }
 
-/* --------------------------------------personae Sophie*/
+/* -------------------------------------------------Personae Sophie*/
 #personae {
-  margin-top: 5em;
-  padding-bottom: 5em;
+  margin-top: 2em;
+  padding-bottom: 1em;
 }
 
 #personae h2 {
@@ -67,7 +87,7 @@
 
 #personae p {
   margin-right: 1em;
-  margin-top: 0.5em;
+  margin-top: 1em;
   margin-bottom: 0em;
   text-align: left;
   padding-left: 1em;
@@ -77,30 +97,6 @@
   color: #000;
   font-size: 18px;
 }
-
-/* --------------------------------Bouton lien Inscription donateur*/
-#button-donateur {
-  height: 45px;
-  font-size: 10px;
-  margin-bottom: 0.5em;
-  border-color: #000;
-  border-radius: 1em;
-}
-#button-donateur a {
-  font-size: 18px;
-  font-family: Helvetica, Arial, sans-serif;
-  color: white;
-}
-/* @media (max-width: 700px) {
-  #button-donateur {
-    height: 45px;
-    font-size: 10px;
-    padding: 1em;
-    margin-top: 0em;
-    border-color: #000;
-    border-radius: 1em;
-  }
-} */
 
 /* --------------------------------------personae Association*/
 #asso {
@@ -112,17 +108,12 @@
   margin-top: 1em;
   margin-bottom: 0em;
   text-align: left;
-  /* padding: 0em; */
-  /* padding-top: 1em; */
-  /* padding-bottom: 0em; */
   font-family: Helvetica, Arial, sans-serif;
   color: #000;
   font-size: 30px;
 }
 
 #asso h3 {
-  /* margin: 2em; */
-  /* margin-left: 0em; */
   margin-top: 0.5em;
   margin-bottom: 0em;
   text-align: left;
@@ -133,8 +124,6 @@
 }
 
 #titre-2 {
-  /* margin: 2em; */
-  /* margin-left: 0em; */
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   text-align: left;
@@ -165,60 +154,29 @@
   padding-left: 1em;
   padding-bottom: 0em;
   padding-top: 0em;
-  /* font-family: Helvetica, Arial, sans-serif; */
-  /* color: #000; */
-  /* font-size: 18px; */
-  /* list-style-type: none; */
 }
 
 #asso li {
-  /* margin-left: 0em; */
   margin-top: 0em;
   margin-bottom: 0em;
   text-align: left;
   padding-left: 1em;
   padding-bottom: 1em;
   padding-top: 0em;
-  /* font-family: Helvetica, Arial, sans-serif; */
-  /* color: #000; */
-  /* font-size: 18px; */
   list-style-type: none;
 }
+
 #asso h5 {
   margin-left: 0em;
   margin-top: 0em;
   margin-bottom: 0em;
-  /* text-align: left; */
-  /* padding-top: 0em; */
   font-family: Helvetica, Arial, sans-serif;
   color: #000;
   font-size: 18px;
 }
 
-/* ----------------------------Bouton lien Inscription associations*/
-#button-association {
-  margin-top: 0.5em;
-  height: 45px;
-  font-size: 10px;
-  border-color: #000;
-  border-radius: 1em;
-}
-#button-association a {
-  font-size: 18px;
-  font-family: Helvetica, Arial, sans-serif;
-  color: white;
-}
-
 /* @media (max-width: 700px) {
-  #asso {
-    margin-bottom: 5em;
-    padding-bottom: 10em;
-  }
-}
-
-@media (max-width: 700px) {
-  .button {
-    justify-content: space-between;
+  #button-donateur {
     height: 45px;
     font-size: 10px;
     padding: 1em;

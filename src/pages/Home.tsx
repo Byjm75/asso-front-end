@@ -6,46 +6,8 @@ export const Home = () => {
   return (
     <div>
       <nav className='navbar sticky-top navbar-expand-lg shadow'>
-        <div className='container-fluid'>
-          <div>
-            <img
-              src={logo}
-              aria-hidden='true'
-              alt=' logo du site Associations-Nous !'
-              title='logo du site Associations-Nous !'
-              width='90'
-              height='55'
-              className='d-inline-block align-text-top me-2'
-              id='navbarLogo'
-            />
-          </div>
-          <div
-            className='collapse navbar-collapse justify-content-center'
-            id='navbarInscriptionDonateur'
-            title='cliquez pour y accéder'
-          >
-            <button
-              type='button'
-              className='btn btn-danger'
-              id='button-donateur'
-            >
-              <a className='navbar-brand' href='*'>
-                Inscription Donateur
-              </a>
-            </button>
-          </div>
-          <div
-            className='d-flex align-items-center justify-content-center flex-grow-1'
-            id='navbarTitre'
-          >
-            <div
-              className='navbar-brand mb-0 h1'
-              title='Plateforme de mise en relation entre associations et donateurs'
-            >
-              <span>ASSOCIATIONS-NOUS !</span>
-            </div>
-          </div>
-          {/* Objet menu en responsive */}
+        {/* Objet menu en responsive */}
+        <div>
           <button
             className='navbar-toggler'
             type='button'
@@ -57,27 +19,53 @@ export const Home = () => {
           >
             <span className='navbar-toggler-icon'></span>
           </button>
+        </div>
+
+        <div className='d-flex align-items-center justify-content-center flex-grow-1'>
+          <img
+            src={logo}
+            aria-hidden='true'
+            alt=' logo du site Associations-Nous !'
+            title='logo du site Associations-Nous !'
+            width='90'
+            height='55'
+            id='logo'
+            className='logo-css'
+          />
+
           <div
-            className='collapse navbar-collapse justify-content-center'
-            id='navbarLinkAsso'
+            className='d-flex align-items-center justify-content-center flex-grow-1'
             title='cliquez pour y accéder'
+            id='boutton-inscription'
           >
-            <button
-              type='button'
-              className='btn btn-danger'
-              id='button-donateur'
-            >
-              <a className='navbar-brand' href='*'>
-                Inscription Association
-              </a>
+            <button type='button' className='btn btn-danger'>
+              <a href='#' />
+              <span>Inscription Donateur</span>
             </button>
           </div>
-          <div id='navbarConnect' title='cliquez pour y accéder'>
+
+          <div
+            className='d-flex align-items-center justify-content-center flex-grow-1'
+            id='navbar-titre'
+            title='Plateforme de mise en relation entre associations et donateurs'
+          >
+            <span>ASSOCIATIONS-NOUS !</span>
+          </div>
+          <div
+            className='d-flex align-items-center justify-content-center flex-grow-1'
+            title='cliquez pour y accéder'
+            id='boutton-inscription'
+          >
+            <button type='button' className='btn btn-danger'>
+              <a href='*' />
+              <span> Inscription Association</span>
+            </button>
+          </div>
+          <div id='connection' title='cliquez pour y accéder'>
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link' href='*'>
-                  Mon compte
-                </a>
+                <a className='nav-link' href='*' />
+                <span>Mon compte</span>
               </li>
             </ul>
           </div>
@@ -88,15 +76,16 @@ export const Home = () => {
           <Row>
             <Col id='introduction'>
               <p>
-                Associations-Nous est la plateforme idéale pour faire des dons
-                en ligne de manière simple, sécurisée et efficace. <br />
+                <strong>Associations-Nous</strong> est la plateforme idéale pour
+                faire des dons en ligne de manière simple, sécurisée et
+                efficace. <br />
                 En choisissant "Solidarité pour tous" sur notre site, Sophie a
                 pu sélectionner le projet qui lui tenait le plus à cœur et
                 suivre son évolution en temps réel. <br />
-                Associations-Nous garantit la transparence et la traçabilité de
-                chaque projet pour que les donateurs puissent voir l'impact réel
-                de leur contribution sur la société. Rejoignez-nous pour
-                contribuer à un avenir meilleur pour tous !
+                <strong>Associations-Nous</strong> garantit la transparence et
+                la traçabilité de chaque projet pour que les donateurs puissent
+                voir l'impact réel de leur contribution sur la société.
+                Rejoignez-nous pour contribuer à un avenir meilleur pour tous !
               </p>
             </Col>
           </Row>
@@ -121,13 +110,14 @@ export const Home = () => {
               </p>
               <p>
                 Sophie veut que ses dons aient un impact réel et croit en la
-                transparence des projets humanitaires. Associations-Nous offre
-                des projets variés, transparents et traçables, permettant de
-                suivre l'évolution en temps réel. Sophie a choisi cette
-                plateforme pour sa fiabilité et son efficacité dans la lutte
-                contre les problèmes sociaux. Elle est rassurée de savoir que
-                son don est utilisé de manière responsable et efficace pour
-                contribuer à un avenir meilleur pour la société.
+                transparence des projets humanitaires.
+                <strong>Associations-Nous</strong> offre des projets variés,
+                transparents et traçables, permettant de suivre l'évolution en
+                temps réel. Sophie a choisi cette plateforme pour sa fiabilité
+                et son efficacité dans la lutte contre les problèmes sociaux.
+                Elle est rassurée de savoir que son don est utilisé de manière
+                responsable et efficace pour contribuer à un avenir meilleur
+                pour la société.
               </p>
             </Col>
             <Col id='asso'>
@@ -161,9 +151,9 @@ export const Home = () => {
                   </h5>
                   <p>
                     A pour but d'aider les personnes sans domicile fixe ou en
-                    situation de précarité à accéder à un logement stable. Votre
-                    soutien financier à ce projet permet de financer la
-                    rénovation de logements.
+                    situation de précarité à accéder à un logement stable. Vos
+                    dons à ce projet permet de financer la rénovation de
+                    logements.
                   </p>
                 </li>
                 <li>
@@ -191,36 +181,26 @@ export const Home = () => {
             </Col>
           </Row>
           <Row>
-            <Col
-              className='d-flex justify-content-center align-items-center'
-              xs={12}
-              sm={6}
-              md={6}
-            >
+            <Col className='d-flex justify-content-center align-items-center'>
               <button
                 type='button'
                 className='btn btn-danger'
-                id='button-donateur'
+                title='cliquez pour y accéder'
+                id='boutton-inscription'
               >
-                <a className='navbar-brand' href='*'>
-                  Inscription Donateur
-                </a>
+                <a className='navbar-brand' href='*' />
+                <span>Inscription Donateur</span>
               </button>
             </Col>
-            <Col
-              className='d-flex justify-content-center align-items-center'
-              xs={12}
-              sm={6}
-              md={6}
-            >
+            <Col className='d-flex justify-content-center align-items-center'>
               <button
                 type='button'
                 className='btn btn-danger'
-                id='button-association'
+                title='cliquez pour y accéder'
+                id='boutton-inscription'
               >
-                <a className='navbar-brand' href='*'>
-                  Inscription Association
-                </a>
+                <a className='navbar-brand' href='*' />
+                <span>Inscription Association</span>
               </button>
             </Col>
           </Row>
@@ -229,3 +209,11 @@ export const Home = () => {
     </div>
   );
 };
+
+{
+  /* <a className='form-asso navbar-brand' href='*'></a> */
+}
+
+// xs={12}
+// sm={6}
+// md={6}
