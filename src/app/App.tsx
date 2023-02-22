@@ -1,18 +1,22 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Connection } from "../authentification/Connection";
+import { InscriptionAssociation } from "../authentification/InscriptionAssociation";
+import { InscriptionDonor } from "../authentification/InscriptionDonor";
+import { Home } from "../pages/Home";
 
 export const App = () => {
   return (
     <div>
       <BrowserRouter>
-        {/* On utilise notre composant dans notre JSX */}
-        {/* <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/details' element={<Details />} />
-          <Route path='/inscription' element={<Signup />} />
-          <Route path='/connexion' element={<Login />} />
-          <Route path='/allusers' element={<ListUser />} />
-        </Routes> */}
+          <Route path='/inscription-donateur' element={<InscriptionDonor />} />
+          <Route
+            path='/inscription-association'
+            element={<InscriptionAssociation />}
+          />
+          <Route path='/connection' element={<Connection />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

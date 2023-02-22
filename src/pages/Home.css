@@ -7,10 +7,6 @@
 }
 
 /* ----------------------------Bouton lien Inscription donateur*/
-.form-donateur.navbar-brand a {
-  margin: none;
-  padding: none;
-}
 #boutton-inscription span {
   font-size: 18px;
   font-family: Helvetica, Arial, sans-serif;

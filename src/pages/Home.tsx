@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import "../pages/Home.css";
 import logo from "../assets/Asso2.png";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
+  useEffect(() => {
+    document.title = "Associations-Nous !";
+  }, []);
+
   return (
     <div>
       <nav className='navbar sticky-top navbar-expand-lg shadow'>
@@ -39,8 +45,9 @@ export const Home = () => {
             id='boutton-inscription'
           >
             <button type='button' className='btn btn-danger'>
-              <a href='#' />
-              <span>Inscription Donateur</span>
+              <Link to='/inscription-donateur'>
+                <span>Inscription Donateur</span>
+              </Link>
             </button>
           </div>
 
@@ -57,15 +64,17 @@ export const Home = () => {
             id='boutton-inscription'
           >
             <button type='button' className='btn btn-danger'>
-              <a href='*' />
-              <span> Inscription Association</span>
+              <Link to='/inscription-association'>
+                <span> Inscription Association</span>
+              </Link>
             </button>
           </div>
           <div id='connection' title='cliquez pour y accéder'>
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link' href='*' />
-                <span>Mon compte</span>
+                <Link to='/connection'>
+                  <span>Se Connecter</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -188,8 +197,9 @@ export const Home = () => {
                 title='cliquez pour y accéder'
                 id='boutton-inscription'
               >
-                <a className='navbar-brand' href='*' />
-                <span>Inscription Donateur</span>
+                <Link to='/inscription-donateur'>
+                  <span>Inscription Donateur</span>
+                </Link>
               </button>
             </Col>
             <Col className='d-flex justify-content-center align-items-center'>
@@ -199,8 +209,9 @@ export const Home = () => {
                 title='cliquez pour y accéder'
                 id='boutton-inscription'
               >
-                <a className='navbar-brand' href='*' />
-                <span>Inscription Association</span>
+                <Link to='/inscription-association'>
+                  <span> Inscription Association</span>
+                </Link>
               </button>
             </Col>
           </Row>
@@ -209,10 +220,6 @@ export const Home = () => {
     </div>
   );
 };
-
-{
-  /* <a className='form-asso navbar-brand' href='*'></a> */
-}
 
 // xs={12}
 // sm={6}
