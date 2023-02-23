@@ -1,0 +1,14 @@
+/* --------------------------------------------------------------Navbar*/
+.navbar {
+  background-color: #ffff !important;
+}
+#logo.logo-css {
+  margin-left: 30px;
+}
+/*le titre*/
+#navbar-titre span {
+  color: rgb(3, 152, 158);
+  font-size: 36px;
+  font-weight: bold;
+  border-color: #000;
+}
