@@ -1,11 +1,12 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
+import { theme } from "../assets/Theme";
 
 interface ResearchProps {
-  themes: string[];
+  theme: string[];
 }
 
-export const Research = ({ themes }: ResearchProps) => {
+export const Research = ({ theme }: ResearchProps) => {
   return (
     <div className='research'>
       <Dropdown>
@@ -13,7 +14,7 @@ export const Research = ({ themes }: ResearchProps) => {
           Recherche par thème
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          {themes.map((theme) => (
+          {theme.map((theme) => (
             <Dropdown.Item key={theme}>{theme}</Dropdown.Item>
           ))}
         </Dropdown.Menu>

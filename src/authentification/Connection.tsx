@@ -5,12 +5,28 @@ import { useNavigate } from "react-router-dom";
 import "../authentification/Connection.css";
 
 export interface LeTokenDecode {
+  asso: any;
   donor: {
     id: string;
     pseudo: string;
     surname: string;
     firstname: string;
     email: string;
+    password: string;
+    role: string;
+  };
+  iat: string;
+  exp: string;
+}
+export interface LeTokenDecodeAsso {
+  asso: {
+    id: string;
+    name: string;
+    email: string;
+    siret: string;
+    rna: string;
+    theme: string;
+    website: string;
     password: string;
     role: string;
   };
@@ -46,20 +62,20 @@ export const Connection = () => {
       .then((response: AxiosResponse) => {
         console.log("reponse requete", response.data);
         const token: string = response.data.accessToken;
-        console.log("token;;;;;;;;;;;;;;;", token);
-        let leToken: LeTokenDecode;
+        let leToken: any;
         if (token) {
+          alert("coucou");
           localStorage.setItem("accessToken", token);
-          localStorage.getItem("accessToken");
+          // localStorage.getItem("accessToken");
           leToken = jwtDecode(token);
-          console.log(leToken.donor.id, "LETOKEN");
+          console.log("token;;;;;;;;;;;;;;;", leToken);
           alert("Authentification réussie");
 
           setTimeout(() => {
-            if (leToken.donor.role === "donor") {
+            if (leToken.donor) {
               navigate("/dashboardDonor");
             }
-            if (leToken.donor.role === "asso") {
+            if (leToken.asso) {
               navigate("/dashboardAssociation");
             }
           });
@@ -69,7 +85,6 @@ export const Connection = () => {
         console.log(error);
 
         alert("Combinaison adresse mail/ mot de passe non trouvée");
-        window.location.reload();
       });
   };
 

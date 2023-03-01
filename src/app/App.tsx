@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Connection } from "../authentification/Connection";
 import { InscriptionAssociation } from "../authentification/InscriptionAssociation";
 import { InscriptionDonor } from "../authentification/InscriptionDonor";
+import { DashboardAsso } from "../pages/DashboardAsso";
 import { DashboardDonor } from "../pages/DashboardDonor";
 import { Home } from "../pages/Home";
 
@@ -18,7 +19,7 @@ export const App = () => {
           />
           <Route path='/connection' element={<Connection />} />
           <Route path='/dashboardDonor' element={<DashboardDonor />} />
-          {/* <Route path='/dashboardAssociation' element={<DashboardAssociation />} /> */}
+          <Route path='/dashboardAssociation' element={<DashboardAsso />} />
         </Routes>
       </BrowserRouter>
     </div>

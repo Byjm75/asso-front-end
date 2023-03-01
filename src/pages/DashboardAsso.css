@@ -6,14 +6,14 @@
 }
 
 /* .wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
-  height: 100%;
-  margin-top: 40px;
-  margin-left: 100px;
-} */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 100px;
+  } */
 
 .col-md-3 {
   width: 250px;

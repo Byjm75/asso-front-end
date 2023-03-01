@@ -4,24 +4,26 @@ import jwtDecode from "jwt-decode";
 import { Navbar } from "../components/NavBar";
 import { Sidebar } from "../components/SidebarDashboard";
 import { LeTokenDecode } from "../authentification/Connection";
-import "../pages/DashboardDonor.css";
+import "../pages/DashboardAsso.css";
 import { Research } from "../components/Research";
 
-export interface Donor {
+export interface Association {
   id: string;
-  pseudo: string;
-  surname: string;
-  firstname: string;
+  name: string;
   email: string;
+  siret: string;
+  rna: string;
+  theme: string;
+  website: string;
 }
 
-let dataDonor: Donor[] = [];
-export const DashboardDonor = () => {
+let dataAsso: Association[] = [];
+export const DashboardAsso = () => {
   useEffect(() => {
-    document.title = "Mon Dashboard";
+    document.title = "Dashboard de mon association";
   }, []);
 
-  const [donor, setDonor] = useState<Donor>();
+  const [asso, setAsso] = useState<Association>();
 
   useEffect(() => {
     // Récupérer les informations du donateur depuis le serveur et les stocker dans l'état
@@ -32,15 +34,15 @@ export const DashboardDonor = () => {
       const tokenId: LeTokenDecode = jwtDecode(token);
       console.log("tokenDecoded--------------!!!!!!!!!!!", tokenId);
       axios
-        .get(`http://localhost:8082/api/donor/${tokenId.donor.id}`, {
+        .get(`http://localhost:8082/api/association/${tokenId.asso.id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
         })
         .then((response: AxiosResponse) => {
           console.log(response);
-          dataDonor = response.data;
-          setDonor(response.data);
+          dataAsso = response.data;
+          setAsso(response.data);
         });
     }
   }, []);
@@ -61,12 +63,14 @@ export const DashboardDonor = () => {
             <div className='container-fluid'>
               <h4 className='title'>Mes informations</h4>
               <div className='body'>
-                {donor ? (
+                {asso ? (
                   <ul>
-                    <li>Pseudo : {donor.pseudo}</li>
-                    <li>Nom : {donor.surname}</li>
-                    <li>Prénom : {donor.firstname}</li>
-                    <li>Email : {donor.email}</li>
+                    <li>Nom : {asso.name}</li>
+                    <li>Email : {asso.email}</li>
+                    <li>Siret : {asso.siret}</li>
+                    <li>Rna : {asso.rna}</li>
+                    <li>Thème : {asso.theme}</li>
+                    <li>Website : {asso.website}</li>
                   </ul>
                 ) : (
                   <p>Chargement des informations...</p>

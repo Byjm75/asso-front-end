@@ -25,29 +25,15 @@ export const Navbar = () => {
           <span>ASSOCIATIONS-NOUS !</span>
         </div>
 
-        <div className='d-flex align-items-center justify-content-center flex-grow-2'>
-          <Deconnection />
+        <div
+          id='deconnection'
+          className='d-flex align-items-center justify-content-center flex-grow-2'
+        >
+          <div>
+            <Deconnection />
+          </div>
         </div>
       </div>
     </nav>
   );
 };
-
-{
-  /* Objet menu en responsive */
-}
-{
-  /* <div>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-bs-toggle='collapse'
-          data-bs-target='#navbarNav'
-          aria-controls='navbarNav'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-        >
-          <span className='navbar-toggler-icon'></span>
-        </button>
-      </div> */
-}
