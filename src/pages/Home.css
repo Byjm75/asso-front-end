@@ -1,38 +1,3 @@
-/* --------------------------------------------------------------Navbar*/
-.navbar {
-  background-color: #ffff !important;
-}
-#logo.logo-css {
-  margin-left: 30px;
-}
-
-/* ----------------------------Bouton lien Inscription donateur*/
-#boutton-inscription span {
-  font-size: 18px;
-  font-family: Helvetica, Arial, sans-serif;
-  color: white;
-}
-#connection {
-  margin-right: 30px;
-}
-
-#connection span {
-  font-size: 18px;
-  font-family: Helvetica, Arial, sans-serif;
-  color: black;
-}
-#button-donateur {
-  padding: 0em;
-  font-size: 30px;
-}
-
-/*le titre*/
-#navbar-titre span {
-  color: rgb(3, 152, 158);
-  font-size: 36px;
-  font-weight: bold;
-  border-color: #000;
-}
 /*------------------------------------------------------------Image*/
 .background-image {
   background-image: url("../assets/Aide solidarite.jpg");
@@ -171,6 +136,93 @@
   font-size: 18px;
 }
 
+/* ----------------------------Bouton lien Inscription donateur en bas de page*/
+.link {
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 16px;
+}
+
+#boutton-inscription span {
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+#button-donateur {
+  padding: 0em;
+  font-size: 30px;
+}
+
+/* Cacher les boutons d'inscription et de connexion dans la version desktop */
+/* @media (min-width: 992px) {
+  #boutton-inscription,
+  #connection {
+    display: none;
+  }
+} */
+
+/* Afficher les boutons d'inscription et de connexion dans le menu burger */
+/* CSS pour la version mobile */
+
+/* @media (max-width: 991.98px) {
+  .nav-links {
+    position: fixed;
+    right: 0px;
+    height: 100vh;
+    top: 80px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-active {
+    width: 100%;
+  }
+
+  .nav-links li {
+    opacity: 0;
+  }
+
+  .nav-links li a {
+    font-size: 1.5rem;
+  }
+
+  .line1,
+  .line2,
+  .line3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-active .nav-links li {
+    opacity: 1;
+  }
+
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .toggle .line2 {
+    opacity: 0;
+  }
+
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+} */
 /* @media (max-width: 700px) {
   #button-donateur {
     height: 45px;

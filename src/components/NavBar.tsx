@@ -1,25 +1,10 @@
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/Asso2.png";
 import { Deconnection } from "./Deconnection";
+import "../components/NavBar.css";
 
 export const Navbar = () => {
   return (
     <nav className='navbar sticky-top navbar-expand-lg shadow'>
-      {/* Objet menu en responsive */}
-      <div>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-bs-toggle='collapse'
-          data-bs-target='#navbarNav'
-          aria-controls='navbarNav'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-        >
-          <span className='navbar-toggler-icon'></span>
-        </button>
-      </div>
-
       <div className='d-flex align-items-center justify-content-center flex-grow-1'>
         <img
           src={logo}
@@ -40,10 +25,29 @@ export const Navbar = () => {
           <span>ASSOCIATIONS-NOUS !</span>
         </div>
 
-        <div className='d-flex align-items-center justify-content-center flex-grow-1'>
+        <div className='d-flex align-items-center justify-content-center flex-grow-2'>
           <Deconnection />
         </div>
       </div>
     </nav>
   );
 };
+
+{
+  /* Objet menu en responsive */
+}
+{
+  /* <div>
+        <button
+          className='navbar-toggler'
+          type='button'
+          data-bs-toggle='collapse'
+          data-bs-target='#navbarNav'
+          aria-controls='navbarNav'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+        >
+          <span className='navbar-toggler-icon'></span>
+        </button>
+      </div> */
+}

@@ -1,18 +1,76 @@
-import { useState, useEffect } from "react";
+import axios, { AxiosResponse } from "axios";
+import jwtDecode from "jwt-decode";
+import { useState, useEffect, useRef, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import "../authentification/Connection.css";
+
+export interface LeTokenDecode {
+  donor: {
+    id: string;
+    pseudo: string;
+    surname: string;
+    firstname: string;
+    email: string;
+    password: string;
+    role: string;
+  };
+  iat: string;
+  exp: string;
+}
 
 export const Connection = () => {
   useEffect(() => {
     document.title = "Se connecter";
   }, []);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const emailElement = useRef<HTMLInputElement>(null);
+  const passwordElement = useRef<HTMLInputElement>(null);
+  const [selectedOption, setSelectedOption] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const navigate = useNavigate();
+
+  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value);
+    console.log("))))))))))))))))))", event.target.value);
+  };
+  const handleSubmitForm = async (e: FormEvent) => {
     e.preventDefault();
-    // TODO: handle form submission
+    console.log(emailElement.current?.value);
+    console.log(passwordElement.current?.value);
+
+    axios
+      .post(`http://localhost:8082/api/auth/login/${selectedOption}`, {
+        email: emailElement.current?.value,
+        password: passwordElement.current?.value,
+      })
+      .then((response: AxiosResponse) => {
+        console.log("reponse requete", response.data);
+        const token: string = response.data.accessToken;
+        console.log("token;;;;;;;;;;;;;;;", token);
+        let leToken: LeTokenDecode;
+        if (token) {
+          localStorage.setItem("accessToken", token);
+          localStorage.getItem("accessToken");
+          leToken = jwtDecode(token);
+          console.log(leToken.donor.id, "LETOKEN");
+          alert("Authentification réussie");
+
+          setTimeout(() => {
+            if (leToken.donor.role === "donor") {
+              navigate("/dashboardDonor");
+            }
+            if (leToken.donor.role === "asso") {
+              navigate("/dashboardAssociation");
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+
+        alert("Combinaison adresse mail/ mot de passe non trouvée");
+        window.location.reload();
+      });
   };
 
   return (
@@ -20,7 +78,7 @@ export const Connection = () => {
       <div id='titre-connection' title='Connexion'>
         <h1>Se connecter</h1>
       </div>
-      <form id='connection' onSubmit={handleSubmit}>
+      <form id='connection' onSubmit={handleSubmitForm}>
         <div className='mb-3'>
           <label htmlFor='email' className='form-label'>
             Email
@@ -30,8 +88,7 @@ export const Connection = () => {
             className='form-control'
             id='email'
             placeholder='email@example.com'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            ref={emailElement}
           />
         </div>
         <div className='mb-3'>
@@ -43,24 +100,45 @@ export const Connection = () => {
             className='form-control'
             id='password'
             placeholder='Doit contenir au minimum 8 caractères'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            ref={passwordElement}
           />
         </div>
         <div className='mb-3'>
-          <label htmlFor='passwordConfirmation' className='form-label'>
-            Confirmation du mot de passe
+          <label htmlFor='role' className='form-label'>
+            Type d'utilisateur
           </label>
-          <input
-            type='password'
-            className='form-control'
-            id='passwordConfirmation'
-            placeholder='Ton mot de passe est à confirmer'
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-          />
+          <div>
+            <div className='form-check form-check-inline'>
+              <input
+                className='form-check-input'
+                type='radio'
+                value='donor'
+                defaultChecked
+                checked={selectedOption === "donor"}
+                onChange={handleOptionChange}
+              />
+              <label className='form-check-label' htmlFor='donor'>
+                Donateur
+              </label>
+            </div>
+            <div className='form-check form-check-inline'>
+              <input
+                className='form-check-input'
+                type='radio'
+                value='association'
+                onChange={handleOptionChange}
+              />
+              <label className='form-check-label' htmlFor='association'>
+                Association
+              </label>
+            </div>
+          </div>
         </div>
-        <button type='submit' className='btn btn-primary'>
+        <button
+          type='submit'
+          className='btn btn-primary'
+          onClick={handleSubmitForm}
+        >
           Se connecter
         </button>
       </form>

@@ -1,0 +1,66 @@
+/* --------------------------------------------------------------Navbar*/
+.navbar {
+  background-color: #ffff !important;
+}
+#logo.logo-css {
+  margin-left: 30px;
+  margin-right: 0px;
+}
+.logo-css {
+  display: block;
+  margin: auto;
+}
+
+#navbarMobile-titre {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+#navbarMobile-titre span {
+  color: rgb(3, 152, 158);
+  font-size: 32px;
+  font-weight: bold;
+  border-color: #000;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* ----------------------------Bouton lien Inscription donateur*/
+#boutton-inscription span {
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+}
+#connection {
+  margin-right: 30px;
+}
+
+#connection span {
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: black;
+}
+#button-donateur {
+  padding: 0em;
+  font-size: 30px;
+}
+
+/*le titre*/
+/*------------------------------------------------------------Image*/
+.background-image {
+  background-image: url("../assets/Aide solidarite.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  filter: contrast(90%);
+}
+
+/* @media (min-width: 700px) {
+  #boutton-inscription,
+  #connection {
+    display: none;
+  }
+} */

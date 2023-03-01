@@ -1,32 +1,79 @@
-import { useState, useEffect } from "react";
+import axios from "axios";
+import { useEffect, useRef, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../authentification/InscriptionAssociation.css";
 
 export const InscriptionAssociation = () => {
   useEffect(() => {
     document.title = "Inscription Association";
   }, []);
+  const [champManquant, setChampManquant] = useState<string>();
+  const nameElement = useRef<HTMLInputElement>(null);
+  const emailElement = useRef<HTMLInputElement>(null);
+  const passwordElement = useRef<HTMLInputElement>(null);
+  const passwordConfirmElement = useRef<HTMLInputElement>(null);
+  const siretElement = useRef<HTMLInputElement>(null);
+  const rnaElement = useRef<HTMLInputElement>(null);
+  const themeElement = useRef<HTMLInputElement>(null);
+  const websiteElement = useRef<HTMLInputElement>(null);
+  const bodyElement = useRef<HTMLInputElement>(null);
+  const photoElement = useRef<HTMLInputElement>(null);
 
-  const [nom, setNom] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [siret, setSiret] = useState("");
-  const [rna, setRna] = useState("");
-  const [theme, setTheme] = useState("");
-  const [website, setWebsite] = useState("");
-  const [body, setBody] = useState("");
-  const [assets, setPhoto] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitForm = (e: FormEvent) => {
+    console.log("---!!!", handleSubmitForm);
     e.preventDefault();
-    // TODO: handle form submission
+    console.log("button form clicked");
+    console.log(nameElement.current?.value);
+    console.log(emailElement.current?.value);
+    console.log(passwordElement.current?.value);
+    console.log(siretElement.current?.value);
+    console.log(rnaElement.current?.value);
+    console.log(themeElement.current?.value);
+    if (
+      passwordElement.current?.value !== passwordConfirmElement.current?.value
+    ) {
+      console.log("password)))))))))", passwordElement.current?.value);
+
+      alert("Les champs mot de passe et confirmation ne correspondent pas.");
+    } else {
+      axios
+        .post("http://localhost:8082/api/auth/register/association", {
+          name: nameElement.current?.value,
+          email: emailElement.current?.value,
+          siret: siretElement.current?.value,
+          rna: rnaElement.current?.value,
+          theme: themeElement.current?.value,
+          password: passwordElement.current?.value,
+        })
+        .then((response) => {
+          console.log(response);
+          navigate("/connection");
+        })
+        .catch((err) => {
+          console.error(err);
+          if (
+            !nameElement ||
+            !emailElement ||
+            !siretElement ||
+            !rnaElement ||
+            !themeElement ||
+            passwordElement
+          ) {
+            setChampManquant("Veuillez remplir tous les champs !");
+          } else if (err.response.data.message) {
+            setChampManquant(err.response.data.message);
+          }
+        });
+    }
   };
   return (
     <div className='container'>
       <div id='titre-asso' title='Inscription pour association'>
         <h1>Inscription Association</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitForm}>
         <div className='row'>
           <div className='col-md-6 mb-3'>
             <label htmlFor='nom' className='form-label'>
@@ -37,8 +84,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='nom'
               placeholder='Nom de votre association'
-              value={nom}
-              onChange={(e) => setNom(e.target.value)}
+              ref={nameElement}
             />
           </div>
           <div className='col-md-6 mb-3'>
@@ -50,8 +96,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='email'
               placeholder='nom@example.com'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              ref={emailElement}
             />
           </div>
         </div>
@@ -65,8 +110,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='password'
               placeholder='Doit contenir au minimum 8 caractères'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              ref={passwordElement}
             />
           </div>
           <div className='col-md-6 mb-3'>
@@ -78,8 +122,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='passwordConfirmation'
               placeholder='Ton mot de passe'
-              value={passwordConfirmation}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
+              ref={passwordConfirmElement}
             />
           </div>
         </div>
@@ -93,8 +136,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='siret'
               placeholder='Numéro de SIRET'
-              value={siret}
-              onChange={(e) => setSiret(e.target.value)}
+              ref={siretElement}
             />
           </div>
           <div className='col-md-6 mb-3'>
@@ -106,8 +148,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='rna'
               placeholder='Numéro de RNA'
-              value={rna}
-              onChange={(e) => setRna(e.target.value)}
+              ref={rnaElement}
             />
           </div>
         </div>
@@ -122,8 +163,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='theme'
               placeholder='Thème de votre association'
-              value={theme}
-              onChange={(e) => setTheme(e.target.value)}
+              ref={themeElement}
             />
           </div>
           <div className='col-md-6 mb-3'>
@@ -135,8 +175,7 @@ export const InscriptionAssociation = () => {
               className='form-control'
               id='website'
               placeholder='Adresse de votre site web'
-              value={website}
-              onChange={(e) => setWebsite(e.target.value)}
+              ref={websiteElement}
             />
           </div>
         </div>
@@ -145,34 +184,23 @@ export const InscriptionAssociation = () => {
           <label htmlFor='body' className='form-label'>
             Présentation de l'association
           </label>
-          <textarea
+          <input
+            type='text'
             className='form-control'
             id='body'
-            rows={5}
             placeholder='Présentez votre association'
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-          ></textarea>
-        </div>
-        <div className='mb-3'>
-          <label htmlFor='photo' className='form-label'>
-            Photo de profil
-          </label>
-          <input
-            type='file'
-            className='form-control'
-            id='photo'
-            onChange={(e) => setPhoto(e.target.value)}
+            ref={bodyElement}
           />
         </div>
       </form>
-      <div className='row'>
-        <div className='col-md-12'>
-          <button type='submit' className='btn btn-primary btn-block'>
-            S'inscrire
-          </button>
-        </div>
-      </div>
+      <span className='messageDynamique'>{champManquant}</span>
+      <button
+        type='submit'
+        className='btn btn-primary'
+        onClick={handleSubmitForm}
+      >
+        S'inscrire
+      </button>
     </div>
   );
 };

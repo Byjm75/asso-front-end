@@ -1,14 +1,40 @@
 /* --------------------------------------------------------------Navbar*/
 .navbar {
   background-color: #ffff !important;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
-#logo.logo-css {
-  margin-left: 30px;
+.logo-css {
+  margin: 10px;
 }
+
 /*le titre*/
+#navbar-titre {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #navbar-titre span {
   color: rgb(3, 152, 158);
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   border-color: #000;
+}
+.Deconnection {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.Deconnection button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.Deconnection button:hover {
+  color: #555;
 }
