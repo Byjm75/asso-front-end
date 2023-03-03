@@ -15,6 +15,13 @@ export interface Association {
   rna: string;
   theme: string;
   website: string;
+  projects: Project[];
+}
+export interface Project {
+  id: string;
+  website: string;
+  topic: string;
+  body: string;
 }
 
 let dataAsso: Association[] = [];
@@ -75,14 +82,6 @@ export const DashboardAsso = () => {
                 ) : (
                   <p>Chargement des informations...</p>
                 )}
-              </div>
-              <div className='col-md-9'>
-                <div className='content'>
-                  <div className='container-fluid'>
-                    <h4 className='title'>Recherchez une association</h4>
-                    <Research theme={[]} />
-                  </div>
-                </div>
               </div>
             </div>
           </div>

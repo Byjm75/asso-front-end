@@ -1,7 +1,7 @@
 .main-panel {
   width: 100%;
   height: 100vh;
-  background-color: #f8f9fa;
+  background-color: #f4f4f4;
   overflow: hidden;
 }
 
@@ -27,4 +27,8 @@
 
 .content {
   padding: 20px;
+}
+
+.main-panel {
+  height: 100%;
 }

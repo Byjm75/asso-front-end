@@ -7,6 +7,7 @@ interface ResearchProps {
 }
 
 export const Research = ({ theme }: ResearchProps) => {
+  console.log(theme, "theme dans composant");
   return (
     <div className='research'>
       <Dropdown>
