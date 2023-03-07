@@ -6,6 +6,7 @@ import { InscriptionDonor } from "../authentification/InscriptionDonor";
 import { AssociationProject } from "../pages/AssociationProject";
 import { DashboardAsso } from "../pages/DashboardAsso";
 import { DashboardDonor } from "../pages/DashboardDonor";
+import { EditDonor } from "../pages/EditDonor";
 import { Home } from "../pages/Home";
 
 // Composant principal de l'application
@@ -25,6 +26,7 @@ export const App = () => {
           <Route path='/dashboardDonor' element={<DashboardDonor />} />
           <Route path='/dashboardAssociation' element={<DashboardAsso />} />
           <Route path='/association/:id' element={<AssociationProject />} />
+          <Route path='/donor/:id' element={<EditDonor />} />
         </Routes>
       </BrowserRouter>
     </div>

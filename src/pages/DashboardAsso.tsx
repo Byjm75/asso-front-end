@@ -2,7 +2,6 @@ import axios, { AxiosResponse } from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import jwtDecode from "jwt-decode";
 import { Navbar } from "../components/NavBar";
-import { Sidebar } from "../components/SidebarDashboard";
 import { LeTokenDecode } from "../authentification/Connection";
 import "../pages/DashboardAsso.css";
 import { Research } from "../components/Research";
@@ -58,13 +57,6 @@ export const DashboardAsso = () => {
     <div className='main-panel'>
       <Navbar />
       <div className='row'>
-        <div className='col-md-3'>
-          <Sidebar
-            handleLogout={function () {
-              throw new Error("Function not implemented.");
-            }}
-          />
-        </div>
         <div className='col-md-9'>
           <div className='content'>
             <div className='container-fluid'>

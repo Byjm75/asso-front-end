@@ -1,45 +1,38 @@
 // Importations de bibliothèques externes
 import axios, { AxiosResponse } from "axios";
 import React, { useEffect, useState } from "react";
-import { Navbar } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Association, Project } from "./DashboardAsso";
 import "../pages/AssociationProject.css";
 import { Donation } from "../components/Donation";
+import { NavbarDesktop } from "../components/NavbarHomeDesk";
+import { Navbar } from "../components/NavBar";
 
-// Déclaration d'un composant fonctionnel AssociationProject
 export const AssociationProject = () => {
-  const { id } = useParams(); // Récupération de l'ID de l'association depuis les paramètres de l'URL
-  const [association, setAssociation] = useState<Association>(); // Définition d'un état pour l'association courante, initialisé à null
-  const [projects, setProjects] = useState([]); // Définition d'un état pour les projets de l'association, initialisé à un tableau vide
-
-  // Utilisation du Hook useEffect pour exécuter du code après le montage du composant
+  const { id } = useParams();
+  const [association, setAssociation] = useState<Association>();
+  const [projects, setProjects] = useState([]);
   useEffect(() => {
-    // Effectue une requête GET pour récupérer les informations de l'association correspondant à l'ID
+    document.title = "Donation";
     axios
       .get(`http://localhost:8082/api/association/${id}`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`, // Ajout du token JWT dans l'en-tête de la requête pour l'authentification
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       })
       .then((response: AxiosResponse) => {
-        // Si la requête est réussie
-        console.log(response); // Affiche la réponse dans la console du navigateur
-        setAssociation(response.data); // Met à jour l'état de l'association avec les données reçues
+        console.log(response);
+        setAssociation(response.data);
       });
   }, [id]); // La dépendance "id" signifie que le Hook useEffect sera réexécuté chaque fois que l'ID change
 
-  // Rendu du composant
   return (
     <div>
-      <div>
-        <Navbar />
-      </div>
+      <Navbar />
       <div className='main-panel'>
         <div className='association-body'>
           <div className='association-header'>
             Bienvenue sur la page de {association?.name}
-            {/* Affiche le nom de l'association, s'il est défini */}
           </div>
           <div className='association-projects'>
             <h3>Projets de l'association :</h3>
