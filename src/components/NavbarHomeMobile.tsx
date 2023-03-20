@@ -4,8 +4,8 @@ import "./NavbarHomeMobile.css";
 
 export function NavbarMobile() {
   return (
-    <nav className='navbar sticky-top navbar-expand-md shadow'>
-      <div className='container fluid'>
+    <nav className='navbar sticky-top navbar-expand-md shadow' id='maNav'>
+      <div className='container fluid' id='elementNavContainer'>
         <img
           src={logo}
           aria-hidden='true'
