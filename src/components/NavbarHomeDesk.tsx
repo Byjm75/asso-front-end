@@ -4,7 +4,7 @@ import "../components/NavbarHomeDesk.css";
 
 export function NavbarDesktop() {
   return (
-    <nav className='navbar sticky-top navbar-expand-md shadow'>
+    <nav className='navbar sticky-top navbar-expand-lg shadow'>
       <img
         src={logo}
         aria-hidden='true'

@@ -17,20 +17,11 @@ export const InscriptionAssociation = () => {
   const themeElement = useRef<HTMLInputElement>(null);
   const websiteElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
-  const photoElement = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
 
   const handleSubmitForm = (e: FormEvent) => {
-    console.log("---!!!", handleSubmitForm);
     e.preventDefault();
-    console.log("button form clicked");
-    console.log(nameElement.current?.value);
-    console.log(emailElement.current?.value);
-    console.log(passwordElement.current?.value);
-    console.log(siretElement.current?.value);
-    console.log(rnaElement.current?.value);
-    console.log(themeElement.current?.value);
     if (
       passwordElement.current?.value !== passwordConfirmElement.current?.value
     ) {

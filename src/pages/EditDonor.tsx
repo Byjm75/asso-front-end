@@ -1,13 +1,12 @@
 import axios, { AxiosResponse } from "axios";
-import jwtDecode from "jwt-decode";
+// import jwtDecode from "jwt-decode";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
-import { Navbar } from "react-bootstrap";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { LeTokenDecode } from "../authentification/Connection";
+// import { Navbar } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+// import { LeTokenDecode } from "../authentification/Connection";
 import { Donor } from "./DashboardDonor";
 
 export const EditDonor = () => {
-  const [message, setMessage] = useState<string>();
   const pseudoElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
@@ -30,9 +29,9 @@ export const EditDonor = () => {
 
         setDonor(response.data);
       });
-  }, []);
+  }, [id]);
 
-  const HandleSubmitForm = async (e: FormEvent) => {
+  const HandleSubmitForm = (e: FormEvent) => {
     console.log("handleSubmitForm");
     e.preventDefault();
     const accessToken = localStorage.getItem("accessToken");
@@ -72,7 +71,7 @@ export const EditDonor = () => {
           setTimeout(() => {
             navigate("/");
           }, 2000);
-          setMessage("Le service a été définitivement supprimé");
+          // setMessage("Le service a été définitivement supprimé");
 
           console.log(`Le service ${id} a bien été supprimé`);
         })

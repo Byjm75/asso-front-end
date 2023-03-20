@@ -47,13 +47,9 @@ export const Connection = () => {
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
-    console.log("))))))))))))))))))", event.target.value);
   };
-  const handleSubmitForm = async (e: FormEvent) => {
+  const handleSubmitForm = (e: FormEvent) => {
     e.preventDefault();
-    console.log(emailElement.current?.value);
-    console.log(passwordElement.current?.value);
-
     axios
       .post(`http://localhost:8082/api/auth/login/${selectedOption}`, {
         email: emailElement.current?.value,
@@ -64,12 +60,9 @@ export const Connection = () => {
         const token: string = response.data.accessToken;
         let leToken: any;
         if (token) {
-          alert("coucou");
           localStorage.setItem("accessToken", token);
-          // localStorage.getItem("accessToken");
           leToken = jwtDecode(token);
-          console.log("token;;;;;;;;;;;;;;;", leToken);
-          alert("Authentification réussie");
+          alert("Bienvenue");
 
           setTimeout(() => {
             if (leToken.donor) {
@@ -83,17 +76,15 @@ export const Connection = () => {
       })
       .catch((error) => {
         console.log(error);
-
         alert("Combinaison adresse mail/ mot de passe non trouvée");
       });
   };
-
   return (
     <div className='container'>
       <div id='titre-connection' title='Connexion'>
         <h1>Se connecter</h1>
       </div>
-      <form id='connection' onSubmit={handleSubmitForm}>
+      <form onSubmit={handleSubmitForm}>
         <div className='mb-3'>
           <label htmlFor='email' className='form-label'>
             Email

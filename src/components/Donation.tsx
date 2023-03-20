@@ -1,7 +1,26 @@
-import React, { useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Association } from "../pages/DashboardAsso";
+import { Donor } from "../pages/DashboardDonor";
 
-export const Donation = () => {
+export interface ProjectProps {
+  id: string;
+}
+
+// export interface Donation {
+//   id: string;
+//   amount: number;
+//   by_month: boolean;
+// }
+// let dataDon: Donation[] = [];
+
+export const Donation = ({ id }: ProjectProps) => {
+  useEffect(() => {
+    document.title = "Inscription Donateur";
+  }, []);
+
   // Déclaration d'un useState pour gérer l'affichage de la modale
   const [show, setShow] = useState(false);
 
@@ -23,6 +42,30 @@ export const Donation = () => {
   // Fonction pour mettre à jour la fréquence du don
   const handleFrequencyChange = (event: any) => {
     setDonationFrequency(event.target.value);
+  };
+
+  const navigate = useNavigate();
+  const HandleDonation = (e: FormEvent) => {
+    e.preventDefault();
+    const accessToken = localStorage.getItem("accessToken");
+
+    axios
+      .post(
+        `http://localhost:8082/api/donation/${id}`,
+        {
+          amount: Number(donationAmount),
+          by_month: Boolean(donationFrequency),
+        },
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      )
+      .then((response: AxiosResponse) => {
+        console.log(response);
+        alert("Merci, votre dotion à été effectuée, Félicitation !");
+        navigate("/dashboardDonor");
+        window.location.reload();
+      });
   };
 
   return (
@@ -79,7 +122,7 @@ export const Donation = () => {
           </Button>
 
           {/* Bouton pour valider le don et fermer la modale */}
-          <Button variant='primary' onClick={handleClose}>
+          <Button variant='primary' onClick={HandleDonation}>
             Valider
           </Button>
         </Modal.Footer>

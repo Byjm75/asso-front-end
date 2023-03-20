@@ -47,7 +47,7 @@ export const AssociationProject = () => {
                     {/* Affiche le titre du projet */}
                     <span id='body-projet'>{project.body} </span> <br />
                     {/* Affiche la description du projet */}
-                    <Donation />
+                    <Donation id={project.id} />
                     {/* Affiche le composant Donation pour permettre les dons */}
                   </li>
                 )
